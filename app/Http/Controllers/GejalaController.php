@@ -47,6 +47,7 @@ class GejalaController extends Controller
             "id" => Uuid::uuid4()->getHex(),
             "kode_gejala" => $request->kode_gejala,
             "nama_gejala" => $request->nama_gejala,
+            "nilai_densitas" => $request->nilai_densitas,
         ];
 
         DB::beginTransaction();
@@ -81,6 +82,7 @@ class GejalaController extends Controller
         $get_data = Gejala::find($request->id);
         $data['kode_gejala'] = $get_data->kode_gejala;
         $data['nama_gejala'] = $get_data->nama_gejala;
+        $data['nilai_densitas'] = $get_data->nilai_densitas;
 
         return $data;
     }
@@ -89,7 +91,8 @@ class GejalaController extends Controller
     {
         $validation = Validator::make($request->all(), [
             "kode_gejala" => "required",
-            "nama_gejala" => "required"
+            "nama_gejala" => "required",
+            "nilai_densitas" => "required"
         ]);
 
         if($validation->fails()){
@@ -112,6 +115,7 @@ class GejalaController extends Controller
         $data = Gejala::find($request->id);
         $data->kode_gejala = $request->kode_gejala;
         $data->nama_gejala = $request->nama_gejala;
+        $data->nilai_densitas = $request->nilai_densitas;
 
         try {
             if (!$data->update()) {

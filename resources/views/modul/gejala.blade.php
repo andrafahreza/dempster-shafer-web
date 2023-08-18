@@ -42,6 +42,7 @@
                                     <tr>
                                         <th>Kode Gejala</th>
                                         <th>Nama Gejala</th>
+                                        <th>Nilai Densitas</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -50,6 +51,7 @@
                                         <tr>
                                             <td>{{ $item->kode_gejala }}</td>
                                             <td>{{ $item->nama_gejala }}</td>
+                                            <td>{{ $item->nilai_densitas }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon waves-effect waves-light edit" data-bs-toggle="modal" data-bs-target="#edit-data" value="{{ $item->id }}">
                                                     <li class="las la-pencil-alt"></li>
@@ -89,6 +91,10 @@
                             <label for="sub-menu" class="form-label">Nama gejala</label>
                             <input type="text" name="nama_gejala" class="form-control" placeholder="Masukkan Nama Gejala" required> <br>
                         </div>
+                        <div class="col-md-12">
+                            <label for="sub-menu" class="form-label">Nilai Densitas</label>
+                            <input type="text" name="nilai_densitas" class="form-control" placeholder="Masukkan Nilai Densitas" required> <br>
+                        </div>
                         <div class="col-lg-12">
                             <div class="hstack gap-2 justify-content-end">
                                 <button type="button" class="btn btn-light" data-bs-dismiss="modal">Tutup</button>
@@ -121,6 +127,10 @@
                         <div class="col-md-12">
                             <label for="sub-menu" class="form-label">Nama Gejala</label>
                             <input type="text" name="nama_gejala" class="form-control" placeholder="Masukkan Nama Gejala" id="nama_gejala" required> <br>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="sub-menu" class="form-label">Nilai Densitas</label>
+                            <input type="text" name="nilai_densitas" class="form-control" placeholder="Masukkan Nilai Densitas" id="nilai_densitas" required> <br>
                         </div>
                         <div class="col-lg-12">
                             <div class="hstack gap-2 justify-content-end">
@@ -230,6 +240,7 @@
             success : function(data){
                 $('#kode_gejala').val(data['kode_gejala']);
                 $('#nama_gejala').val(data['nama_gejala']);
+                $('#nilai_densitas').val(data['nilai_densitas']);
             }
         });
     });

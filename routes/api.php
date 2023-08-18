@@ -11,5 +11,6 @@ Route::group([
 ], function () {
     Route::prefix("gejala")->group(function () {
         Route::get('data-gejala', [DataController::class, 'gejala']);
+        Route::post('data-gejala', [DataController::class, 'get_penyakit']);
     });
 });

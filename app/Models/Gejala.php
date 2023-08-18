@@ -18,5 +18,6 @@ class Gejala extends Model
         'id',
         'kode_gejala',
         'nama_gejala',
+        'nilai_densitas'
     ];
 }

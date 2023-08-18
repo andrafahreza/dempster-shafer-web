@@ -12,6 +12,7 @@ Route::get('login', [AuthController::class, 'index'])->middleware('guest');
 Route::post('login', [AuthController::class, 'login'])->middleware('guest');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('logout', [AuthController::class, 'logout']);
     Route::get('home', [HomeController::class, 'index'])->name('home');
 
     Route::get('gejala', [GejalaController::class, 'index'])->name('home');
